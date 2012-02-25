@@ -11,7 +11,8 @@ class Proc
 
   def [](*args)
     diff = self.arity - args.size
-    if diff == 0
+    # do this? or throw an error on diff < 0 ?
+    if diff <= 0
       self.call(*args)
     else
       vars = (1..diff).map{|num| "var_#{num}"}.join(",")      
