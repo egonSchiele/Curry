@@ -1,4 +1,3 @@
-
 class Proc
   def * g
     if g.arity == 0

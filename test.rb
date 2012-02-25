@@ -1,4 +1,4 @@
-require 'curry'
+require 'lib/curry'
 include Curry
 
 puts (filter << even << (0..10))
