@@ -39,8 +39,9 @@ module Curry
 
   def foldl1
     lambda do |func, xs|
-      acc = xs[0]
-      xs[1, xs.size].each do |x|
+      acc = nil
+      xs.each do |x|
+        next acc = x unless acc
         acc = func.call(acc, x)
       end
       acc
@@ -58,9 +59,9 @@ module Curry
 
   def foldr1
     lambda do |func, xs|
-      xs = xs.reverse
-      acc = xs[0]
-      xs[1, xs.size].each do |x|
+      acc = nil
+      xs.reverse_each do |x|
+        next acc = x unless acc
         acc = func.call(acc, x)
       end
       acc
